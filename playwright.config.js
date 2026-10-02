@@ -13,4 +13,4 @@ const config = {
     browserName: 'chromium'
   },
 };
-module.exports = config;
+module.exports = config; //<-- Agregar al final del codigo
