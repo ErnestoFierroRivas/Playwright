@@ -64,30 +64,12 @@ test.only('@Child windows hadl', async ({browser})=>{
         context.waitForEvent ('page'), //Escucha a la espera de nueva pagona
         documentLink.click(), //Nueva pagina se abre
     ])
-    
+
     const text = await newPage.locator(".red").textContent();
     const arrayText = text.split("@")
     const domain = arrayText[1].split(" ")[0]
-    console.log(domain);
-    await page.locator("#username").type(domain);
-    await page.pause;
-    console.log(await page.locator("#username").textContent());
+    //console.log(domain);
+    await page.locator("#username").fill(domain);
+    console.log(await page.locator("#username").inputValue()); //Se cambio inputValue por textContent para leer lo que el usuario escribe
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //const dropdown = page.locator("select.form-control");
-    //const context = await browser.newContext();
-    //const page = await context.newPage();
-    //dropdown.click(); //Se abre nueva pagina
-    
 });
