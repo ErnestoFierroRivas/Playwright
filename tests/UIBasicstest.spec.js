@@ -1,4 +1,5 @@
 const {test, expect} = require('@playwright/test');
+const { text } = require('node:stream/consumers');
 
 test('Browser Contex Playwright test', async ({browser})=>
 {
@@ -29,7 +30,7 @@ test('Browser Contex Playwright test', async ({browser})=>
     console.log(allTitle);
 });
 
-test.only('UI Controls', async ({page})=>
+test('UI Controls', async ({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const userName = page.locator('#username');
@@ -49,4 +50,44 @@ test.only('UI Controls', async ({page})=>
     
     //ASSERTION
     //await page.pause();
+});
+
+test.only('@Child windows hadl', async ({browser})=>{
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const userName = page.locator('#username');
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");     
+    const documentLink = page.locator("[href*='documents-request']");
+    
+    const [newPage] = await Promise.all( //La funcion de promesa se cumple cuando todo lo que este en el se cumpla
+    [
+        context.waitForEvent ('page'), //Escucha a la espera de nueva pagona
+        documentLink.click(), //Nueva pagina se abre
+    ])
+    
+    const text = await newPage.locator(".red").textContent();
+    const arrayText = text.split("@")
+    const domain = arrayText[1].split(" ")[0]
+    console.log(domain);
+    await page.locator("#username").type(domain);
+    await page.pause;
+    console.log(await page.locator("#username").textContent());
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //const dropdown = page.locator("select.form-control");
+    //const context = await browser.newContext();
+    //const page = await context.newPage();
+    //dropdown.click(); //Se abre nueva pagina
+    
 });
