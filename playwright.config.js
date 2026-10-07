@@ -7,12 +7,6 @@ const config = {
   testMach: '**/*.spec.js',
   retries: 0,
 
-  //Control de tiempo en 30 segundos
-  use:{
-    actionTimeout: 10 * 1000,
-    navigationTimeout: 30 * 1000,
-  },
-
   //Tiempo maximo de ejecucion de las pruebas
   //Tienpo predeterminado de las pruebas
   timeout: 30 * 1000,
@@ -29,6 +23,8 @@ const config = {
   reporter: 'html',
 
   use: {
+    actionTimeout: 10 * 1000,
+    navigationTimeout: 30 * 1000,
     //Se abre en navegador en Chrome
     browserName: 'chromium',
     //Se abre en navegador en Firefox
