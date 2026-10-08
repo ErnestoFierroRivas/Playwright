@@ -60,7 +60,6 @@ test('@Webst Client App Login', async ({ page }) =>
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
 });
-const {test, expect} = require('@playwright/test');
 
 test('@Webst Client App Login', async ({ page }) =>
 {
