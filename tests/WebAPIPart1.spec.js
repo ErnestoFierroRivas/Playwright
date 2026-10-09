@@ -34,7 +34,8 @@ test.beforeEach(() =>{
 
 });
 
-test('@API Place the order', async ({ page }) =>
+//Creacion de orden completada
+test('API Place the order', async ({ page }) =>
 {
     page.addInitScript(value => {
         window.localStorage.setItem('token',value);
