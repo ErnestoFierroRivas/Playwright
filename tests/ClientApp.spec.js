@@ -60,9 +60,8 @@ test('@Webst Client App Login', async ({ page }) =>
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
 });
-const {test, expect} = require('@playwright/test');
 
-test('@Webst Client App Login', async ({ page }) =>
+test('@Webst Client App Login2', async ({ page }) =>
 {
     const email = "anshikaw@yahoo.com";
     const productsName = 'ZARA COAT 3';
