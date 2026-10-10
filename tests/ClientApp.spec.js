@@ -61,7 +61,7 @@ test('@Webst Client App Login', async ({ page }) =>
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
 });
 
-test('@Webst Client App Login', async ({ page }) =>
+test('@Webst Client App Login2', async ({ page }) =>
 {
     const email = "anshikaw@yahoo.com";
     const productsName = 'ZARA COAT 3';

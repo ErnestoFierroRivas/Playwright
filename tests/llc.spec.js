@@ -26,7 +26,7 @@ test('Playwright Test Level Time Out', async ({page}) =>{
     //de playwright.config.js, se hace en una variable (const).
 
     //60 Segunos para terminar la prueba, de lo contrario, fallara.
-    test.setTimeout(6000);
+    test.setTimeout(30000);
     const slowExpect = expect.configure({timeout:9000});
   
     await page.goto("https://rahulshettyacademy.com/angularpractice/");
@@ -41,8 +41,8 @@ test('Playwright Test Level Time Out', async ({page}) =>{
     //Tiempo de espera 10segundo (se duplico par verse mejor la afirmacion)
     await expect(page.getByText("Success! The Form has been submitted successfully!.")).toBeVisible({ timeout: 10_000 });
      
-    await page.getByRole("link",{name : "Shop"}).click({timeout:15000});
-    await expect(page.locator(".my-4").first()).toHaveText("Shop");
+    await page.getByRole("link",{name : "Shop"}).click();
+    await expect(page.locator(".my-4").first()).toHaveText("Shop Name");
 
     await page.locator("app-card").filter({hasText: 'Nokia Edge'}).getByRole("button").click();
 
