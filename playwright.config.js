@@ -10,6 +10,7 @@ const config = {
   //Tiempo maximo de ejecucion de las pruebas
   //Tienpo predeterminado de las pruebas
   timeout: 30 * 1000,
+
   expect:{
     timeout: 5000
   },
@@ -22,6 +23,8 @@ const config = {
   reporter: 'html',
 
   use: {
+    actionTimeout: 10 * 1000,
+    navigationTimeout: 30 * 1000,
     //Se abre en navegador en Chrome
     browserName: 'chromium',
     //Se abre en navegador en Firefox
@@ -30,7 +33,7 @@ const config = {
     //browserName: 'webkit',
 
     //headless es para mostar resultado en el navegador. Si es true no abre el navegador y si es false lo abre.
-    headless: false,
+    headless: !!process.env.CI,
     screenshot:'on',
     trace:'on',//off o on
   },
