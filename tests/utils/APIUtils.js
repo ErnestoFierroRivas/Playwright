@@ -1,16 +1,17 @@
-class APIUtils{
+class APiUtils{
     constructor(apiContext, loginPayLoad){
         this.apiContext = apiContext;
         this.loginPayLoad = loginPayLoad;
     }
 
     async getToken(){
-        const loginResponse = await apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login",
+        const loginResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/auth/login",
         {
-            data:loginPayLoad
-        })
+            data:this.loginPayLoad
+        });
+
         const loginResponseJson = await loginResponse.json();
-        token = loginResponseJson.token;
+        const token = loginResponseJson.token;
         console.log(token);
         return token;
     }
@@ -18,19 +19,21 @@ class APIUtils{
         let response = {};
         response.token = await this.getToken();
         const orderResponse = await this.apiContext.post("https://rahulshettyacademy.com/api/ecom/order/create-order",
+
         {
             data: orderPayLoad,
             headers:{
-                        'Authorization':this.getToken(),
+                        'Authorization': response.token,
                         'Content-Type': 'application/json'
-                    },
-        })
+                    }
+        });
+
         const orderResponseJson = await orderResponse.json();
         console.log(orderResponseJson);
-        orderId = orderResponseJson.orders[0];
+        const orderId = orderResponseJson.orders[0];
         response.orderId = orderId;
-        return orderId;
+        return response;
     }
 }
 
-module.exports = {APIUtils};
+module.exports = {APiUtils};

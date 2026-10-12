@@ -52,7 +52,7 @@ test('UI Controls', async ({page})=>
     //await page.pause();
 });
 
-test.only('@Child windows hadl', async ({browser})=>{
+test('@Child windows hadl', async ({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator('#username');
@@ -73,10 +73,9 @@ test.only('@Child windows hadl', async ({browser})=>{
     console.log(await page.locator("#username").inputValue()); //Se cambio inputValue por textContent para leer lo que el usuario escribe
 
 });
-const {test, expect} = require('@playwright/test');
-const { text } = require('node:stream/consumers');
+//const { text } = require('node:stream/consumers');
 
-test('Browser Contex Playwright test', async ({browser})=>
+test('Browser Contex Playwright test2', async ({browser})=>
 {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -105,7 +104,7 @@ test('Browser Contex Playwright test', async ({browser})=>
     console.log(allTitle);
 });
 
-test('UI Controls', async ({page})=>
+test('UI Controls2', async ({page})=>
 {
     await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
     const userName = page.locator('#username');
@@ -127,7 +126,7 @@ test('UI Controls', async ({page})=>
     //await page.pause();
 });
 
-test.only('@Child windows hadl', async ({browser})=>{
+test('@Child windows hadl2', async ({browser})=>{
     const context = await browser.newContext();
     const page = await context.newPage();
     const userName = page.locator('#username');

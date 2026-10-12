@@ -33,7 +33,7 @@ const config = {
     //browserName: 'webkit',
 
     //headless es para mostar resultado en el navegador. Si es true no abre el navegador y si es false lo abre.
-    headless: false,
+    headless: !!process.env.CI,
     screenshot:'on',
     trace:'on',//off o on
   },
