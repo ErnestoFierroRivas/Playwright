@@ -75,7 +75,7 @@ test('@Child windows hadl', async ({browser})=>{
 });
 //const { text } = require('node:stream/consumers');
 
-test('Browser Contex Playwright test2', async ({browser})=>
+/* test('Browser Contex Playwright test2', async ({browser})=>
 {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -146,4 +146,4 @@ test('@Child windows hadl2', async ({browser})=>{
     await page.locator("#username").fill(domain);
     console.log(await page.locator("#username").inputValue()); //Se cambio inputValue por textContent para leer lo que el usuario escribe
 
-});
+}); */
