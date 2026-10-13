@@ -25,7 +25,7 @@ test('@Webst Client App Login', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('Zara Coat 3')").isVisible();
+    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
     expect(bool).toBeTruthy();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
@@ -85,8 +85,8 @@ test('@Webst Client App Login2', async ({ page }) =>
     //await page.pause();
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
-
-    const bool = await page.locator("h3:has-text('Zara Coat 3')").isVisible();
+//Poner ZARA COAT 3 en mayusculas
+    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
     expect(bool).toBeTruthy();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
@@ -118,6 +118,7 @@ test('@Webst Client App Login2', async ({ page }) =>
             break;
         }
     }
-    const orderIdDetail = await page.locator(".col-text").textContent();
-    expect (orderId.includes(orderIdDetail)).toBeTruthy();
+//Se le agrega la "s" a la variable de const orderIdDetail"
+    const orderIdDetails = await page.locator(".col-text").textContent();
+    expect (orderId.includes(orderIdDetails)).toBeTruthy();
 });
