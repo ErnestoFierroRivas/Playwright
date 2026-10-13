@@ -8,7 +8,7 @@ test('@Webst Client App Login', async ({ page }) =>
 
     await page.goto("https://rahulshettyacademy.com/client");
     await page.getByPlaceholder("email@example").fill(email);
-    await page.getByPlaceholder("enter your password").fill("Learning@830$3mK3");
+    await page.getByPlaceholder("enter your passsword").fill("Learning@830$3mK3");
     await page.getByRole('button', {name:"Login"}).click();
     //Se sustituye por la linea de arriba, para tomar referencias desde
     //la etiqueta getByRole
@@ -26,8 +26,8 @@ test('@Webst Client App Login', async ({ page }) =>
 
     await page.getByRole("button", {name:"Checkout"}).click();
 
-    await page.getByPlaceholder("Select Cuntry").pressSequentially(ind);
-
+    await page.getByPlaceholder("Select Country").pressSequentially("ind");
+    
     await page.getByRole("button", {name:"India"}).nth(1).click();
     await page.getByText("PLACE ORDER").click();
 
