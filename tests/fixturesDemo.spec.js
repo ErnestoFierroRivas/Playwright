@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 const { customtest } = require('./utils/fixtures.js');
-const { AfterAll } = require('@cucumber/cucumber');
+//const { AfterAll } = require('@cucumber/cucumber');
 
 
 customtest('Fixtures demo', async ({ authenticatedPage,createOrder,testDataForOrder }) => {
