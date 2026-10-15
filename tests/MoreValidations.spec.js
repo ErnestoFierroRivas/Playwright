@@ -26,3 +26,8 @@ test("Screenshot &Visual comparation", async({page}) =>{
     await page.screenshot({path: 'screenshot.png'});
     await expect(page.locator("#displayed-text")).toBeHidden();
 });
+
+test.only("Visual testing", async({page}) =>{
+    await page.goto("https://google.com/");
+    await expect(await page.screenshot()).toMatchSnapshot('landing1.png');
+});
