@@ -1,12 +1,12 @@
 const ExcelJs = require('exceljs');
 
-async function writeExcelTest(searchText, replaceText, filePath){
+async function writeExcelTest(searchText, replaceText,change, filePath){
     
     const workbook = new ExcelJs.Workbook();
     await workbook.xlsx.readFile(filePath);
     const worksheet = workbook.getWorksheet('Sheet1');
     const output = await readExcel(worksheet, searchText);
-    const cell = worksheet.getCell(output.row, output.column);
+    const cell = worksheet.getCell(output.row, output.column+change.colChange);
     cell.value= replaceText;
     await workbook.xlsx.writeFile(filePath);
 }
@@ -27,6 +27,7 @@ async function readExcel(worksheet,searchText) {
     return output;
 }
 //Ahora se actualiza la tabla desde aqui
-writeExcelTest("Banana","Republic","C:/Users/fierroe/Documents/archivos de playwright/download.xlsx");
+//Se agrego el parametro "change"
+writeExcelTest("Mango",780,{rowChange:0, colChange:2},"C:/Users/fierroe/Documents/archivos de playwright/download.xlsx");
 
 
