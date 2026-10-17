@@ -20,18 +20,19 @@ test('Place the order', async ({ page }) =>
     }, response.token);
 
     await page.goto("https://rahulshettyacademy.com/client/");
-    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-details?id=6aceb9d693b084c41f4899d7",
+    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
         async route=>{
             //interceptar respuesta
             const response = await page.request.fetch(route.request());
-            let body = fakePayLoadOrders;
-            route.fulfill({
+            const body = JSON.stringify(fakePayLoadOrders);
+            await route.fulfill({
                 response,
                 body,
-            })
+            });
         }
     );
     await page.locator("button[routerlink*='myorders']").click();
-    await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*")
-    console.log(await page.locator(".mt-4").textContent());
+    //await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*")
+    //console.log(await page.locator(".mt-4").textContent());
+    await expect(page.locator(".mt-4")).toContainText("No Orders");
 });
