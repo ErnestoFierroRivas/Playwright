@@ -27,7 +27,7 @@ async function readExcel(worksheet,searchText){
 //Prueba para el cambio en el archivo con la tabla de frutas
 test('Upload download excel validation', async ({ page }) => {
     const textSearch = 'Mango';
-    const updateValue = '350';
+    const updateValue = '909';
     await page.goto('https://rahulshettyacademy.com/upload-download-test/index.html');
     const download = page.waitForEvent('download');
     await page.getByRole('button', { name: 'Download' }).click();
