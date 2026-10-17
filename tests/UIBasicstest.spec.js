@@ -74,7 +74,7 @@ test('@Child windows hadl', async ({browser})=>{
 
 });
 
-test.only('Browser Context-Validation Error Login', async ({browser})=>{
+test('Browser Context-Validation Error Login', async ({browser})=>{
     const context = await browser.newContext();
     const page =  await context.newPage();
     // page.route('**/*.{jpg,png,jpeg}',route=> route.abort());
