@@ -2,6 +2,7 @@ const {test, expect, request} = require('@playwright/test');
 const {APiUtils} = require('./utils/APIUtils');
 const loginPayLoad = {userEmail:"anshikaw@gmail.com",userPassword:"Learning@830$3mK3"};
 const orderPayLoad = {orders:[{country:"Cuba",productOrderedId:"6960eac0c941646b7a8b3e68"}]};
+const fakePayLoadOrders = {data: [],message:"No Orders"};
 
 let response;
 
@@ -19,18 +20,19 @@ test('Place the order', async ({ page }) =>
     }, response.token);
 
     await page.goto("https://rahulshettyacademy.com/client/");
-    await page.locator("button[routerlink*='myorders']").click();
-    await page.locator("tbody").waitFor();
-    
-    const rows = await page.locator("tbody tr");
-    for(let i = 0; i < await rows.count(); ++i){
-        const rowOrderId = await rows.nth(i).locator("th").textContent();
-        if(response.orderId.includes(rowOrderId)){
-            await rows.nth(i).locator("button").first().click();
-            break;
+    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
+        async route=>{
+            //interceptar respuesta
+            const response = await page.request.fetch(route.request());
+            const body = JSON.stringify(fakePayLoadOrders);
+            await route.fulfill({
+                response,
+                body,
+            });
         }
-    }    
-    const orderIdDetail = await page.locator(".col-text").textContent();
-    //await page.pause();
-    expect (response.orderId.includes(orderIdDetail)).toBeTruthy();
+    );
+    await page.locator("button[routerlink*='myorders']").click();
+    //await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*")
+    //console.log(await page.locator(".mt-4").textContent());
+    await expect(page.locator(".mt-4")).toContainText("No Orders");
 });
