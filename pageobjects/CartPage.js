@@ -8,7 +8,7 @@ class CartPage{
         this.orders = page.locator("button[routerlink*='myorders']");
         this.checkout = page.locator("text=Checkout");
     }
-    async VeryfyProductIsDisplayed(productsName){
+    async VerifyProductIsDisplayed(productsName){
         await this.cartProducts.waitFor();
         const bool = await this.getProductLocator(productsName).isVisible();
         expect(bool).toBeTruthy();

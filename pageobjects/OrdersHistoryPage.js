@@ -3,7 +3,7 @@ class OrdersHistoryPage{
         this.page = page;
         this.ordersTable = page.locator("tbody");
         this.rows = page.locator("tbody tr");
-        this.orderdIdDetails =page.locator(".col-text");
+        this.orderIdDetails =page.locator(".col-text");
     }
     
     async searchOrderAndSelect(orderId){
@@ -18,7 +18,7 @@ class OrdersHistoryPage{
     }
     
     async getOrderId(){
-        return await this.orderdIdDetails.textContent();
+        return await this.orderIdDetails.textContent();
     }
 }
 module.exports = {OrdersHistoryPage};
