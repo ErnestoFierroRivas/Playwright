@@ -1,6 +1,7 @@
 // @ts-check
 const {devices} = require('@playwright/test');
 const { trace } = require('node:console');
+const { permission } = require('node:process');
 
 const config = {
   testDir: './tests',
@@ -42,11 +43,26 @@ const config = {
         //Se abre en navegador en Chrome
         browserName: 'chromium',
         //headless es para mostar resultado en el navegador. Si es true no abre el navegador y si es false lo abre.
-        headless: !!process.env.CI,
+        //headless: !!process.env.CI,
+        headless: false,
         //Si se le pone true el programa no funcionara por el tiempo excedido
         //headless: true,
         screenshot:'on',
+        ignoreHttpsErrors:true,
+        permission: ['geolocation'],
         trace:'on',//off o on
+
+        //Es para abrir la ventana en cierto tamaño,pero si el sitio no es responsive
+        //fallara al no encontrar elementos
+        ////viewport:{width:720,height:720}
+
+        //Se ejecuta en la pantalla de un celular con los tamaños de
+        //este telefono
+        //Por el ejercicio que no e sun sitio responsive, fallara la prueba
+        ////...devices['Galaxy S24']
+
+        
+
       }
     }
   ]
