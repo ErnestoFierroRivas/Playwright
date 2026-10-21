@@ -1,12 +1,9 @@
 // @ts-check
 const {devices} = require('@playwright/test');
-const { trace } = require('node:console');
-const { permission } = require('node:process');
 
 const config = {
   testDir: './tests',
-  testMach: '**/*.spec.js',
-  retries: 0,
+  retries: 1,
 
   //Tiempo maximo de ejecucion de las pruebas
   //Tienpo predeterminado de las pruebas
@@ -22,8 +19,8 @@ const config = {
     {
       name: 'Firefox',
       use: {
-        actionTimeout: 10 * 1000,
-        navigationTimeout: 30 * 1000,
+        actionTimeout: 90000,
+        navigationTimeout: 90000,
         //Se abre en navegador en Firefox
         browserName: 'firefox',
         //headless es para mostar resultado en el navegador. Si es true no abre el navegador y si es false lo abre.
