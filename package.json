@@ -12,6 +12,6 @@
     "@types/node": "^26.6.4"
   },
   "dependencies": {
-    "exceljs": "^4.4.0"
+    "exceljs": "^3.4.0"
   }
 }
