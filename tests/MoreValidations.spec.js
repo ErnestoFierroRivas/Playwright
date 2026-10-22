@@ -28,7 +28,8 @@ test("Screenshot &Visual comparation", async({page}) =>{
     await expect(page.locator("#displayed-text")).toBeHidden();
 });
 
-test.only("Visual testing", async({page}) =>{
+test("Visual testing", async({page}) =>{
+    test.skip(process.platform !== 'win32', 'Captura de referencia solo para windows');
     await page.goto("https://google.com/");
     await expect(await page.screenshot()).toMatchSnapshot('landing1.png', { maxDiffPixels: 200 });
 });
