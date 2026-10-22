@@ -1,10 +1,10 @@
 const {test, expect} = require('@playwright/test');
-const {customtest} = require("./utils/test-base");
+const {customtest} = require('./utils/test-base');
 const {POManager} = require('../pageobjects/POManager');
 const dataset = JSON.parse(JSON.stringify(require("./utils/placeorderTestData.json")));
 
 for(const data of dataset){
-    test(`Client App Login for ${data.productsName}`, async ({ page }) =>{
+test(`Client App Login for ${data.productsName}`, async ({ page }) =>{
         const poManager = new POManager(page);
 
         const products = page.locator(".card-body");
@@ -30,7 +30,7 @@ for(const data of dataset){
     });
 }
 
-customtest.only('Client App Login-2', async ({ page,testDataForOrder }) =>{
+customtest('Client App Login-2', async ({ page,testDataForOrder }) =>{
     const poManager = new POManager(page);
     const products = page.locator(".card-body");
     const loginPage = poManager.getLoginPage();
