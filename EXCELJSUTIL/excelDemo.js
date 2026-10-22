@@ -28,6 +28,6 @@ async function readExcel(worksheet,searchText) {
 }
 //Ahora se actualiza la tabla desde aqui
 //Se agrego el parametro "change"
-writeExcelTest("Mango",999,{rowChange:0, colChange:2},"C:/Users/fierroe/Documents/archivos de playwright/download.xlsx");
+writeExcelTest("Mango",999,{rowChange:0, colChange:2}, process.argv[2]);
 
 

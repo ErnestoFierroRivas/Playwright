@@ -25,6 +25,7 @@ test('Client App Login', async () =>
     const page = await webContext.newPage();
     await page.goto("https://rahulshettyacademy.com/client");
     const products = page.locator(".card-body");
+    await page.locator(".card-body b").first().waitFor();
     const titles = await page.locator(".card-body b").allTextContents();
     console.log(titles);
     const count = await products.count();
