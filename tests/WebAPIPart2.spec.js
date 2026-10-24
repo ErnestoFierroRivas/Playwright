@@ -18,7 +18,7 @@ test.beforeAll(async({browser}) =>{
     webContext = await browser.newContext({storageState:'state.json'})
 })
 
-test('Client App Login', async () =>
+test('@API Client App Login', async () =>
 {
     const email = "anshikaw@yahoo.com";
     const productName = 'ZARA COAT 3';
@@ -74,7 +74,7 @@ test('Client App Login', async () =>
     expect (orderId.includes(orderIdDetails)).toBeTruthy();
 });
 
-test('API Test case 2', async () => {
+test('@API API Test case 2', async () => {
     const email = "";
     const productName = 'ZARA COAT 3';
     const page = await webContext.newPage();

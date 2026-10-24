@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep @Web",
+    "APITests": "npx playwright test --grep @API"
+  },
   "keywords": [],
   "type": "commonjs",
   "devDependencies": {
@@ -12,6 +16,6 @@
     "@types/node": "^26.6.4"
   },
   "dependencies": {
-    "exceljs": "^3.4.0"
+    "exceljs": "^4.4.0"
   }
 }

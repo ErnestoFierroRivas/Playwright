@@ -12,7 +12,7 @@ test.beforeAll( async() =>{
 })
 
 //Creacion de orden completada
-test('Place the order', async ({ page }) =>
+test('@API Place the order', async ({ page }) =>
 {
     page.addInitScript(value => {
         window.localStorage.setItem('token',value);
