@@ -13,7 +13,8 @@
   "devDependencies": {
     "@cucumber/cucumber": "^13.3.0",
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.4"
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "exceljs": "^4.4.0"
