@@ -1,7 +1,8 @@
 import {test, expect} from '@playwright/test';
 import {customTest} from './utils_ts/test-base';
 import {POManager} from '../pageobjects_ts/POManager';
-const dataset = JSON.parse(JSON.stringify(require("./util/placeorderTestData.json")));
+//const dataset = JSON.parse(JSON.stringify(require("./utils_ts/placeorderTestData.json")));
+import dataset from './utils_ts/placeorderTestData.json';
 
 for(const data of dataset){
     test(`@Webs Client App Login for ${data.productsName}`, async ({ page }) =>{

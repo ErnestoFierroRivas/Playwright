@@ -4,7 +4,7 @@ const { trace } = require('node:console');
 
 const config = {
   testDir: './tests',
-  testMatch: '**/*.spec.js',
+  testMatch: '**/*.spec.{js,ts}',
   retries: 0,
 
   //Tiempo maximo de ejecucion de las pruebas
