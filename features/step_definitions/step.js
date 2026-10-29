@@ -36,9 +36,17 @@ Then('Verify order in present in the OrderHistory', async function(){
     expect(this.orderId.includes(await ordersHistoryPage.getOrderId())).toBeTruthy();
 });
 
+Given('a login to Ecommerce2 application with {string} and {string}', {timeout:100*1000}, async function (username, password) {
+    const userName = this.page.locator('#username');
+    const singIn = this.page.locator("#signInBtn");
+    await this.page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    console.log(await this.page.title());
+    await userName.fill(username);
+    await this.page.locator("[type='password']").fill(password);
+    await singIn.click();
+});
 
-
-
-
-
-
+Then('Verify Error message is displayed', async function () {
+    console.log(await this.page.locator("[style*='block']").textContent('Incorrect'));
+    await expect(this.page.locator("[style*='block']")).toContainText('Incorrect');
+});
