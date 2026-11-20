@@ -9,3 +9,4 @@ node_modules/
 /screenshot*.png
 /playwright-report/index.html
 /state.json
+/results/
