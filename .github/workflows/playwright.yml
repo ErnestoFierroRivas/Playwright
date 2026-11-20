@@ -19,6 +19,14 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
+    - name: Enviar resultados a Zephyr
+      if: ${{ !cancelled() }}
+      run: |
+        curl -sSf -X POST \
+          "https://api.zephyrscale.smartbear.com/v2/automations/executions/junit?projectKey=MT&autoCreateTestCases=false" \
+          -H "Authorization: Bearer ${{ secrets.ZEPHYR_TOKEN }}" \
+          -F "file=@results/junit.xml" \
+          -F 'testCycle={"name":"CI Playwright #${{ github.run_number }}"};type=application/json'
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
