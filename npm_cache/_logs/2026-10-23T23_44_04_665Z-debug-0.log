@@ -1,0 +1,56 @@
+0 verbose cli C:\Program Files\nodejs\node.exe C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+1 info using npm@12.1.0
+2 info using node@v24.20.0
+3 silly config load:file:C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\fierroe\Documents\Curso Playwright\.npmrc
+5 silly config load:file:C:\Users\fierroe\.npmrc
+6 silly config load:file:C:\Users\fierroe\AppData\Roaming\npm\etc\npmrc
+7 verbose cache could not create cache: Error: ENOENT: no such file or directory, mkdir 'C:\Users\fierroe\Documents\Curso Playwright\npm_cache'
+8 verbose logfile could not create logs-dir: Error: ENOENT: no such file or directory, mkdir 'C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_logs'
+9 verbose title npm install
+10 verbose argv "install" "--cache" "./npm_cache"
+11 verbose logfile logs-max:10 dir:C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_logs\2026-10-23T23_44_04_665Z-
+12 verbose logfile C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_logs\2026-10-23T23_44_04_665Z-debug-0.log
+13 silly logfile done cleaning log files
+14 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+15 silly idealTree buildDeps
+16 silly fetch manifest exceljs@^4.4.0
+17 silly packumentCache full:https://registry.npmjs.org/exceljs cache-miss
+18 silly fetch manifest @cucumber/cucumber@^13.3.0
+19 silly packumentCache full:https://registry.npmjs.org/@cucumber%2fcucumber cache-miss
+20 silly fetch manifest @playwright/test@^1.63.0
+21 silly packumentCache full:https://registry.npmjs.org/@playwright%2ftest cache-miss
+22 silly fetch manifest @types/node@^26.6.4
+23 silly packumentCache full:https://registry.npmjs.org/@types%2fnode cache-miss
+24 silly placeDep ROOT @cucumber/cucumber@ OK for: curso-playwright@1.0.0 want: ^13.3.0
+25 silly placeDep ROOT @playwright/test@ OK for: curso-playwright@1.0.0 want: ^1.63.0
+26 silly placeDep ROOT @types/node@ OK for: curso-playwright@1.0.0 want: ^26.6.4
+27 silly placeDep ROOT exceljs@ OK for: curso-playwright@1.0.0 want: ^4.4.0
+28 verbose type system
+29 verbose stack FetchError: Invalid response body while trying to fetch https://registry.npmjs.org/@cucumber%2fcucumber: ENOENT: no such file or directory, mkdir 'C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_cacache'
+29 verbose stack     at C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\minipass-fetch\lib\body.js:174:15
+29 verbose stack     at async Response.json (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\minipass-fetch\lib\body.js:75:17)
+29 verbose stack     at async RegistryFetcher.packument (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\pacote\lib\registry.js:98:25)
+29 verbose stack     at async RegistryFetcher.manifest (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\pacote\lib\registry.js:128:23)
+29 verbose stack     at async #fetchManifest (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1486:20)
+29 verbose stack     at async #nodeFromEdge (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1307:19)
+29 verbose stack     at async #buildDepStep (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:1144:15)
+29 verbose stack     at async Arborist.buildIdealTree (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\build-ideal-tree.js:188:7)
+29 verbose stack     at async Promise.all (index 1)
+29 verbose stack     at async Arborist.reify (C:\Users\fierroe\AppData\Roaming\npm\node_modules\npm\node_modules\@npmcli\arborist\lib\arborist\reify.js:118:5)
+30 error code ENOENT
+31 error syscall mkdir
+32 error path C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_cacache
+33 error errno ENOENT
+34 error enoent Invalid response body while trying to fetch https://registry.npmjs.org/@cucumber%2fcucumber: ENOENT: no such file or directory, mkdir 'C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_cacache'
+35 error enoent This is related to npm not being able to find a file.
+35 error enoent
+36 silly unfinished npm timer reify 1792799046219
+37 silly unfinished npm timer reify:loadTrees 1792799046221
+38 verbose cwd C:\Users\fierroe\Documents\Curso Playwright
+39 verbose os Windows_NT 10.0.26200
+40 verbose node v24.20.0
+41 verbose npm  v12.1.0
+42 verbose exit 1
+43 verbose code 1
+44 error A complete log of this run can be found in: C:\Users\fierroe\Documents\Curso Playwright\npm_cache\_logs\2026-10-23T23_44_04_665Z-debug-0.log
