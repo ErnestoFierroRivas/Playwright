@@ -13,7 +13,8 @@ const config = {
     timeout: 5000
   },
 
-  reporter: 'html',
+  //reporter: 'html',
+  reporter: [['html'], ['junit', { outputFile: 'results/junit.xml' }]],
 
   projects: [
     {
