@@ -56,4 +56,4 @@ test('MT-T24 The documents link flashes', async ({ page }) =>
     const orderIdDetail = await page.locator(".col-text").textContent();
    //await page.pause();
     expect (response.orderId.includes(orderIdDetail)).toBeTruthy();
-});
+}); 
