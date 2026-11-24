@@ -102,3 +102,7 @@ test('MT-T22 Select the User type and cancel the modal', async ({ page }) =>
     const orderIdDetail = (await page.locator(".col-text").innerText()).trim();
     expect(ownResponse.orderId.includes(orderIdDetail)).toBeTruthy();
 });
+
+test.afterEach(async ({ page }) => {
+    await page.waitForTimeout(2000);
+});
