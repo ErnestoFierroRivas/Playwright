@@ -33,3 +33,28 @@ test("Visual testing", async({page}) =>{
     await page.goto("https://google.com/");
     await expect(await page.screenshot()).toMatchSnapshot('landing1.png', { maxDiffPixels: 200 });
 });
+
+test("MT-T25 The documents link opens in a new tab", async({page}) =>{
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator('#displayed-text').screenshot({path: 'screenshot1.png'})
+    await page.locator("#hide-textbox").click();
+    await page.screenshot({path: 'screenshot.png'});
+    await expect(page.locator("#displayed-text")).toBeHidden();
+});
+
+test("MT-T27 The original page remains active after the tab is opened", async({page}) =>{
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator('#displayed-text');
+    await page.locator("#hide-textbox").click();
+    await expect(page.locator("#displayed-text")).toBeHidden();
+});
+
+test("MT-T26 Use the email domain from the new tab", async({page}) =>{
+    await page.goto("https://rahulshettyacademy.com/AutomationPractice/");
+    await expect(page.locator("#displayed-text")).toBeVisible();
+    await page.locator('#displayed-text');
+    await page.locator("#hide-textbox").click();
+    await expect(page.locator("#displayed-text")).toBeHidden();
+});
