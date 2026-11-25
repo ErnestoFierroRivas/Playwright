@@ -36,3 +36,27 @@ test('Place the order', async ({ page }) =>
     //console.log(await page.locator(".mt-4").textContent());
     await expect(page.locator(".mt-4")).toContainText("No Orders");
 });
+
+test('MT-T36 Open the cart with no products', async ({ page }) =>
+{
+    page.addInitScript(value => {
+        window.localStorage.setItem('token',value);
+    }, response.token);
+
+    await page.goto("https://rahulshettyacademy.com/client/");
+    await page.route("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*",
+        async route=>{
+            //interceptar respuesta
+            const response = await page.request.fetch(route.request());
+            const body = JSON.stringify(fakePayLoadOrders);
+            await route.fulfill({
+                response,
+                body,
+            });
+        }
+    );
+    await page.locator("button[routerlink*='myorders']").click();
+    //await page.waitForResponse("https://rahulshettyacademy.com/api/ecom/order/get-orders-for-customer/*")
+    //console.log(await page.locator(".mt-4").textContent());
+    await expect(page.locator(".mt-4")).toContainText("No Orders");
+});
