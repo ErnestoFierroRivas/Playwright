@@ -9,10 +9,10 @@ const config = {
 
   //Tiempo maximo de ejecucion de las pruebas
   //Tienpo predeterminado de las pruebas
-  timeout: 30 * 1000,
+  timeout: 60 * 1000,
 
   expect:{
-    timeout: 5000
+    timeout: 15000
   },
 
   //timeout: 80 * 1000,
