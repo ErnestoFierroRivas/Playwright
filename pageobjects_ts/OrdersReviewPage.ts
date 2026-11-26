@@ -9,6 +9,16 @@ export class OrdersReviewPage{
     orderId: Locator;
     page: Page;
 
+//    constructor(page:Page){
+//        this.page = page;
+//        this.country = page.locator("[placeholder*='Country']");
+//        this.dropdown = page.locator(".ta-results");
+//        this.emailId = page.locator(".user__name [type='text']").first();
+//        this.submit =  page.locator(".action__submit");
+//        this.orderConfirmationText = page.locator(".hero-primary");
+//        this.orderId = page.locator(".em-spacer-1 .ng-star-inserted");
+//    }
+
     constructor(page:Page){
         this.page = page;
         this.country = page.locator("[placeholder*='Country']");
@@ -16,7 +26,7 @@ export class OrdersReviewPage{
         this.emailId = page.locator(".user__name [type='text']").first();
         this.submit =  page.locator(".action__submit");
         this.orderConfirmationText = page.locator(".hero-primary");
-        this.orderId = page.locator(".em-spacer-1 .ng-star-inserted");
+        this.orderId = page.locator(".em-spacer-1 .ng-star-inserted").first();
     }
     
     async searchCountryAndSelect(countryCode:string,countryName:string){
