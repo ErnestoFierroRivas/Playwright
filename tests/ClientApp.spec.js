@@ -118,6 +118,8 @@ test('MT-T32 Log out of the Client App', async ({ page }) =>
     }
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
+
+    await page.waitForTimeout(5000);
 });
 
 test('MT-T37 Complete purchase of a product', async ({ page }) =>
@@ -178,6 +180,8 @@ test('MT-T37 Complete purchase of a product', async ({ page }) =>
     }
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
+
+    await page.waitForTimeout(5000);
 });
 
 test('MT-T38 Checkout pre-fills the users email', async ({ page }) =>
@@ -238,6 +242,8 @@ test('MT-T38 Checkout pre-fills the users email', async ({ page }) =>
     }
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
+
+    await page.waitForTimeout(5000);
 });
 
 test('MT-T39 Country is suggested while typing', async ({ page }) =>
@@ -298,6 +304,8 @@ test('MT-T39 Country is suggested while typing', async ({ page }) =>
     }
     const orderIdDetail = await page.locator(".col-text").textContent();
     expect (orderId.includes(orderIdDetail)).toBeTruthy();
+
+    await page.waitForTimeout(5000);
 });
 
 
