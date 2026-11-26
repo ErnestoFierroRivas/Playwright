@@ -25,8 +25,7 @@ test('@Webst Client App Login', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
-    await expect(bool).toBeTruthy();
+    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
     const dropdown = page.locator(".ta-results");
@@ -42,7 +41,7 @@ test('@Webst Client App Login', async ({ page }) =>
     await expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").first().textContent();
     //Se visualiza el ID  de la orden que trae textContent
     console.log(orderId);
 
@@ -86,8 +85,7 @@ test('MT-T32 Log out of the Client App', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
-    await expect(bool).toBeTruthy();
+    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
     const dropdown = page.locator(".ta-results");
@@ -103,7 +101,7 @@ test('MT-T32 Log out of the Client App', async ({ page }) =>
     await expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").first().textContent();
     //Se visualiza el ID  de la orden que trae textContent
     console.log(orderId);
 
@@ -147,8 +145,7 @@ test('MT-T37 Complete purchase of a product', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
-    await expect(bool).toBeTruthy();
+    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
     const dropdown = page.locator(".ta-results");
@@ -164,7 +161,7 @@ test('MT-T37 Complete purchase of a product', async ({ page }) =>
     await expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").first().textContent();
     //Se visualiza el ID  de la orden que trae textContent
     console.log(orderId);
 
@@ -208,8 +205,7 @@ test('MT-T38 Checkout pre-fills the users email', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
-    await expect(bool).toBeTruthy();
+    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
     const dropdown = page.locator(".ta-results");
@@ -225,7 +221,7 @@ test('MT-T38 Checkout pre-fills the users email', async ({ page }) =>
     await expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").first().textContent();
     //Se visualiza el ID  de la orden que trae textContent
     console.log(orderId);
 
@@ -269,8 +265,7 @@ test('MT-T39 Country is suggested while typing', async ({ page }) =>
     await page.locator("[routerlink*='cart']").click();
     await page.locator("div li").first().waitFor();
 
-    const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
-    await expect(bool).toBeTruthy();
+    await expect(page.locator("h3:has-text('ZARA COAT 3')")).toBeVisible();
     await page.locator("text=Checkout").click();
     await page.locator("[placeholder*='Country']").pressSequentially("ind");
     const dropdown = page.locator(".ta-results");
@@ -286,7 +281,7 @@ test('MT-T39 Country is suggested while typing', async ({ page }) =>
     await expect(page.locator(".user__name [type='text']").first()).toHaveText(email);
     await page.locator(".action__submit").click();
     await expect(page.locator(".hero-primary")).toHaveText(" Thankyou for the order. ");
-    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+    const orderId = await page.locator(".em-spacer-1 .ng-star-inserted").first().textContent();
     //Se visualiza el ID  de la orden que trae textContent
     console.log(orderId);
 
